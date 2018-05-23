@@ -18,6 +18,7 @@ alias ....='cd ../../..'
 
 # dir shortcuts
 alias ws='cd $workspace'
+alias dotfiles="cd $DOTFILES"
 
 # git
 alias gc='git commit'

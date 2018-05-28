@@ -1,4 +1,11 @@
-echo "Sourcing .bashrc"
+verbose="false"
+say() {
+  if [ $verbose = "true" ]; then
+    echo $1;
+  fi
+}
+
+say "Sourcing .bashrc"
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -49,34 +56,53 @@ fi
 
 # source environment variables
 if [ -f ~/.env ]; then
+  say "Sourcing .env"
   . ~/.env
+else
+  say "No .env found"
 fi
 
 # source TD environment variables
 if [ -f ~/.env_td ]; then
+  say "Sourcing .env_td"
   . ~/.env_td
+else
+  say "No .env_td found"
+fi
+
+# source TD functions
+if [ -f ~/.functions ]; then
+  say "Sourcing .functions"
+  . ~/.functions
+else
+  say "No .functions found"
 fi
 
 # source prompt
 if [ -f ~/.prompt ]; then
+  say "Sourcing .prompt"
   . ~/.prompt
+else
+  say "No .prompt found"
 fi
 
 # source aliases
 if [ -f ~/.alias ]; then
+  say "Sourcing .alias"
   . ~/.alias
+else
+  say "No .alias found"
 fi
 
 # source TD aliases
 if [ -f ~/.alias_td ]; then
+  say "Sourcing .alias_td"
   . ~/.alias_td
+else
+  say "No .alias_td found"
 fi
-
-# source TD functions
-if [ -f ~/.functions_td ]; then
-  . ~/.env_td
-fi
-
 
 # welcome message
-cat .config/welcome.message
+if [ -f $HOME/.config/welcome.message ]; then
+  cat .config/welcome.message
+fi

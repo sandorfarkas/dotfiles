@@ -52,6 +52,11 @@ if [ -f ~/.env ]; then
   . ~/.env
 fi
 
+# source TD environment variables
+if [ -f ~/.env_td ]; then
+  . ~/.env_td
+fi
+
 # source prompt
 if [ -f ~/.prompt ]; then
   . ~/.prompt
@@ -61,6 +66,17 @@ fi
 if [ -f ~/.alias ]; then
   . ~/.alias
 fi
+
+# source TD aliases
+if [ -f ~/.alias_td ]; then
+  . ~/.alias_td
+fi
+
+# source TD functions
+if [ -f ~/.functions_td ]; then
+  . ~/.env_td
+fi
+
 
 # welcome message
 cat .config/welcome.message

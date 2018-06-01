@@ -104,5 +104,5 @@ fi
 
 # welcome message
 if [ -f $HOME/.config/welcome.message ]; then
-  cat .config/welcome.message
+  cat $HOME/.config/welcome.message
 fi

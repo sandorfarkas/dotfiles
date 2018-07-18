@@ -1,49 +1,55 @@
 #!/bin/bash
 
-export DOTFILES=${HOME}/workspace/lab/.dotfiles
-export DOTFILES_TD=${HOME}/workspace/lab/.dotfiles_td
+# if directory name contains _ it will be used as environment suffix
+declare -a profile_dirs=(
+  "${HOME}/workspace/.dotfiles/profiles"
+  #"${HOME}/workspace/.dotfiles/lab/profiles_td"
+) 
 
-if [ -L .alias ]; then
-  mv .alias .alias.old
-fi
-ln -s $DOTFILES/.alias .alias
+# @param $1 dir
+# @param $2 filename
+link_file () {
+  target_filename="${1}/${2}"
+  link_filename="${HOME}/${2}"
 
-if [ -L .alias_td ]; then
- mv .alias_td .alias_td.old
-fi
-ln -s $DOTFILES_TD/.alias .alias_td
+  if [ -e $link_filename ]; then
+    echo "Backing up ${link_filename} to ${link_filename}.old"
+    mv "${link_filename}" "${link_filename}.old"
+  fi
+  ln -s "${target_filename}" "${link_filename}" 
+}
 
-if [ -L .env ]; then
-  mv .env .env.old
-fi
-ln -s $DOTFILES/.env .env
+# @param $1 directory of profile files
+linking_profiles_from_directory () {
+  FILES=$(find $1 -maxdepth 1 -type f -printf "%f\n")
+  for filename in $FILES; do
+    link_file $1 $filename $2
+  done
+}
 
-if [ -L .env_td ]; then
-  mv .env_td .env_td.old
-fi
-ln -s $DOTFILES_TD/.env .env_td
+# @param $1 dir
+copy_profile_files () {
+  suffix=$(echo $1 | cut -d'_' -f 2)
+  echo "suffix ${suffix}"
+  # todo
+}
 
-if [ -L .bashrc ]; then
-  mv .bashrc .bashrc.old
-fi
-ln -s $DOTFILES/.bashrc .bashrc
+loop_profile_dirs () {
+  for profile_dir in ${profile_dirs[@]}; do
+    if [ -d $profile_dir ]; then
 
-if [ -L .prompt ]; then
-  mv .prompt .prompt.old
-fi
-ln -s $DOTFILES/.prompt .prompt
+      if [[ $profile_dir = *"_"* ]]; then
+        echo "Copying profile files from ${profile_dir}"
+        copy_profile_files $profile_dir
+      else
+        echo "Linking profiles from directory ${profile_dir}"
+        linking_profiles_from_directory "${profile_dir}"
+      fi
+      
+      echo
+    fi
+  done
+}
 
-if [ -L .functions ]; then
-  mv .functions .functions.old
-fi
-ln -s $DOTFILES/.functions .functions
+loop_profile_dirs
 
-if [ -L .tmux.conf ]; then
-  mv .tmux.conf .tmux.conf.old
-fi
-ln -s $DOTFILES/.tmux.conf .tmux.conf
-
-if [ -L .vimrc ]; then
-  mv .vimrc .vimrc.old
-fi
-ln -s $DOTFILES/.vimrc .vimrc

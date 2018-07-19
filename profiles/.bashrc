@@ -1,4 +1,4 @@
-verbose="true"
+verbose="false"
 say() {
   if [ $verbose = "true" ]; then
     echo $1

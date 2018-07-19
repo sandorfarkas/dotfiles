@@ -2,7 +2,7 @@
 
 # if directory name contains _ it will be used as environment suffix
 declare -a profile_dirs=(
-  "${HOME}/workspace/.dotfiles/profiles"
+  "${HOME}/workspace/lab/dotfiles/profiles"
   #"${HOME}/workspace/.dotfiles/lab/profiles_td"
 ) 
 

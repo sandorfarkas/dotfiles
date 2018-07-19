@@ -11,8 +11,8 @@ declare -a profile_dirs=(
 link_file () {
   target_filename="${1}/${2}"
   link_filename="${HOME}/${2}"
-
-  if [ -e $link_filename ]; then
+  
+  if [ -L $link_filename ]; then
     echo "Backing up ${link_filename} to ${link_filename}.old"
     mv "${link_filename}" "${link_filename}.old"
   fi

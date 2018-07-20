@@ -42,4 +42,7 @@ alias apt-cache='sudo apt-cache'
 alias dojo4='ssh dojo4'
 alias dojo5='ssh dojo5'
 
+# vim.less
+alias less='vim -u $DOTFILES/profiles/.vimrc.less'
+
 alias nautilus='nautilus --no-desktop&'

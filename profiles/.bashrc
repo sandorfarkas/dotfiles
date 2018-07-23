@@ -1,8 +1,15 @@
 verbose="false"
-say() {
+say () {
   if [ $verbose = "true" ]; then
     echo $1
   fi
+}
+
+source_profiles_from () {
+  files=$(find $1 -maxdepth 1 -type f -printf "%f\n")
+  for filename in $files; do
+    source "${1}/${filename}"
+  done
 }
 
 say "Sourcing .bashrc"
@@ -62,14 +69,6 @@ else
   say "No .env found"
 fi
 
-# source TD environment variables
-if [ -f ~/.env_td ]; then
-  say "Sourcing .env_td"
-  . ~/.env_td
-else
-  say "No .env_td found"
-fi
-
 # source TD functions
 if [ -f ~/.functions ]; then
   say "Sourcing .functions"
@@ -94,13 +93,8 @@ else
   say "No .alias found"
 fi
 
-# source TD aliases
-if [ -f ~/.alias_td ]; then
-  say "Sourcing .alias_td"
-  . ~/.alias_td
-else
-  say "No .alias_td found"
-fi
+# source TD stuff
+source_profiles_from "/home/satya/workspace/lab/dotfiles_topdesk"
 
 # welcome message
 if [ -f $HOME/.config/welcome.message ]; then

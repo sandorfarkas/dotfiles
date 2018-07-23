@@ -25,5 +25,3 @@ if [ -d "$HOME/IntelliJ/bin" ] ; then
     PATH="$HOME/IntelliJ/bin:$PATH"
 fi
 
-
-if [ -e /home/satya/.nix-profile/etc/profile.d/nix.sh ]; then . /home/satya/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

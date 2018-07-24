@@ -43,6 +43,6 @@ alias dojo4='ssh dojo4'
 alias dojo5='ssh dojo5'
 
 # vim.less
-alias less='vim -u $DOTFILES/profiles/.vimrc/.vimrc.less'
+alias less='vim -u $DOTFILES/profiles/.vim/.vimrc.less'
 
 alias nautilus='nautilus --no-desktop&'

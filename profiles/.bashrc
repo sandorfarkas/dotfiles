@@ -6,6 +6,8 @@ say () {
 }
 
 source_profiles_from () {
+  if [ ! -d "$1" ]; then return; fi
+
   files=$(find $1 -maxdepth 1 -type f -printf "%f\n")
   for filename in $files; do
     source "${1}/${filename}"

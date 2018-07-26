@@ -34,9 +34,10 @@ alias gp='git pull --rebase --autostash'
 alias mci='mvn clean install'
 alias mcist='mvn clean install -DskipTests -T C1'
 
-# sudo
+# sudo apt
 alias apt-get='sudo apt-get'
 alias apt-cache='sudo apt-cache'
+alias apt='sudo apt'
 
 # ssh
 alias dojo4='ssh dojo4'

@@ -15,8 +15,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # dir shortcuts
-alias ws='cd $workspace'
-alias dotfiles="cd $DOTFILES"
+alias ws='cd ${WORKSPACE}'
+alias dotfiles='cd ${DOTFILES}'
 
 # git
 alias gc='git commit'
@@ -44,6 +44,6 @@ alias dojo4='ssh dojo4'
 alias dojo5='ssh dojo5'
 
 # vim.less
-alias less='vim -u $DOTFILES/.vim/.vimrc.less'
+alias less='vim -u ${DOTFILES}/.vim/.vimrc.less'
 
 alias nautilus='nautilus --no-desktop&'

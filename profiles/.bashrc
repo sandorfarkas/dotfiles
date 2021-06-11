@@ -100,5 +100,5 @@ source_profiles_from "${HOME}/workspace/lab/dotfiles_topdesk"
 
 # welcome message
 if [ -f $HOME/.config/welcome.message ]; then
-  cat $HOME/.config/welcome.message
+  cat $HOME/.config/welcome.message | lolcat-c
 fi

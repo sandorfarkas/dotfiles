@@ -32,7 +32,7 @@ alias gln='git log --graph --pretty=format:"%C(auto)%h%C(auto)%d %s %C(dim white
 alias gp='git pull --rebase --autostash'
 
 # build
-alias mci='mvn clean install'
+alias mci='mvn clean install -T C1'
 alias mcist='mvn clean install -DskipTests -T C1'
 
 # sudo apt

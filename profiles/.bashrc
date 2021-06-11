@@ -102,3 +102,8 @@ source_profiles_from "${HOME}/workspace/lab/dotfiles_topdesk"
 if [ -f $HOME/.config/welcome.message ]; then
   cat $HOME/.config/welcome.message | lolcat-c
 fi
+
+# background image
+if [ -e ~/.fehbg ]; then
+  . ~/.fehbg
+fi

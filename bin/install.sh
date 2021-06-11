@@ -50,5 +50,15 @@ loop_profile_dirs () {
   done
 }
 
+copy_files () {
+  if [ ! -d "${HOME}/.vim/colors" ]; then
+    mkdir -p "${HOME}/.vim/colors"
+  fi
+  if [ ! -e "${HOME}/.vim/colors/gruvbox.vim" ]; then
+    cp "${dotfiles}/.vim/colors/gruvbox.vim" "${HOME}/.vim/colors/gruvbox.vim"
+  fi
+}
+
 loop_profile_dirs
+copy_files
 

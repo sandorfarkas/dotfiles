@@ -19,4 +19,4 @@ fi
 . ~/.env
 . ./.fehbg
 
-. /home/tis.local/sandorf/workspace/lab/dotfiles_topdesk/.env
+. ${HOME}/workspace/util/dotfiles_topdesk/.env

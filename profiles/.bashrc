@@ -96,7 +96,7 @@ else
 fi
 
 # source TD stuff
-source_profiles_from "${HOME}/workspace/lab/dotfiles_topdesk"
+source_profiles_from "${HOME}/workspace/util/dotfiles_topdesk"
 
 # welcome message
 if [ -f $HOME/.config/welcome.message ]; then

@@ -1,5 +1,5 @@
 #!/bin/bash
-dotfiles="${HOME}/workspace/dotfiles"
+dotfiles="${HOME}/workspace/util/dotfiles"
 if [ ! -d "${dotfiles}/backup" ]; then mkdir "${dotfiles}/backup"; fi
 
 # if directory name contains _ it will be used as environment suffix

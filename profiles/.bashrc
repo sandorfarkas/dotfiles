@@ -100,7 +100,7 @@ source_profiles_from "${HOME}/workspace/util/dotfiles_topdesk"
 
 # welcome message
 if [ -f $HOME/.config/welcome.message ]; then
-  cat $HOME/.config/welcome.message | lolcat-c
+  cat $HOME/.config/welcome.message | lolcat
 fi
 
 # background image

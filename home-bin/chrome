@@ -1,0 +1,2 @@
+#!/bin/bash
+google-chrome --auth-server-whitelist=*.tis.local,*.topdesk.com

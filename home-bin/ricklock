@@ -1,0 +1,4 @@
+#!/bin/bash
+if [[ !(-n $(pidof i3lock)) ]]; then
+  i3lock -i <(import -silent -window root png:- | mogrify -blur 0x60 png:- | composite -gravity Southeast -geometry -10x120 ~/Pictures/rick.png png:- png:-)
+fi

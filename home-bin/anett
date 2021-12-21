@@ -1,0 +1,5 @@
+#nmcli d wifi list
+#nmcli c
+#nmcli device wifi connect "Acid Burn" --ask
+nmcli c up "Acid Burn"
+#nmcli c up "POCOPHONE F1"

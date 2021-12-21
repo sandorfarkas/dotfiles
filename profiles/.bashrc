@@ -63,37 +63,23 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# source environment variables
-if [ -f ~/.env ]; then
-  say "Sourcing .env"
-  . ~/.env
-else
-  say "No .env found"
-fi
+# @function source_file_from_home
+# @param $1 filename
+source_file_from_home () {
+  filename=$1
+  
+  if [ -f ~/${filename} ]; then
+    say "Sourcing ${filename}"
+    . ~/${filename}
+  else
+    say "Can't source ${filename}, file not found"
+  fi  
+}
 
-# source TD functions
-if [ -f ~/.functions ]; then
-  say "Sourcing .functions"
-  . ~/.functions
-else
-  say "No .functions found"
-fi
-
-# source prompt
-if [ -f ~/.prompt ]; then
-  say "Sourcing .prompt"
-  . ~/.prompt
-else
-  say "No .prompt found"
-fi
-
-# source aliases
-if [ -f ~/.alias ]; then
-  say "Sourcing .alias"
-  . ~/.alias
-else
-  say "No .alias found"
-fi
+source_file_from_home ".env"
+source_file_from_home ".functions"
+source_file_from_home ".prompt"
+source_file_from_home ".alias"
 
 # source TD stuff
 source_profiles_from "${HOME}/workspace/util/dotfiles_topdesk"
@@ -103,7 +89,11 @@ if [ -f $HOME/.config/welcome.message ]; then
   cat $HOME/.config/welcome.message | lolcat
 fi
 
-# background image
-if [ -e ~/.fehbg ]; then
-  . ~/.fehbg
+# update wallpaper
+if [ -e ~/bin/.fehbg ]; then
+  . ~/bin/.fehbg
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

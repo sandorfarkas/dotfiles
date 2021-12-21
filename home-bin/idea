@@ -1,0 +1,6 @@
+#!/bin/bash
+#authbind --deep /opt/idea-IC-181.5087.20/bin/idea.sh
+source "${DOTFILES_TD}/.env"
+#authbind -deep /opt/idea-IU-181.5281.24/bin/idea.sh
+#authbind --deep /opt/idea-IU-182.4505.22/bin/idea.sh
+authbind --deep /snap/bin/intellij-idea-ultimate

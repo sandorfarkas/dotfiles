@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ $EUID -ne 0 ]; then
+  echo "Run script with sudo."
+  exit 1
+fi
+
 echo "Enter the user of dotfiles:"
 read user_name
 dotfiles="/home/${user_name}/workspace/util/dotfiles"

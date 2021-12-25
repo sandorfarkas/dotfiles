@@ -10,13 +10,21 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+	   . "$HOME/.bashrc"
     fi
 fi
 
-. ~/.env
-. ./.fehbg
+if [ -f "$HOME/.env" ]; then
+  . "$HOME/.env"
+fi
 
-. ${HOME}/workspace/util/dotfiles_topdesk/.env
+if [ -f "$HOME/bin/fehbg" ]; then
+  . "$HOME/bin/fehbg"
+fi
+
+if [ -n "$DOTFILES_TOPDESK" ]; then
+    if [ -f "$DOTFILES_TOPDESK/.env" ]; then
+        . "$DOTFILES_TOPDESK/.env"
+    fi
+fi

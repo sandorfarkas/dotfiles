@@ -82,16 +82,18 @@ source_file_from_home ".prompt"
 source_file_from_home ".alias"
 
 # source TD stuff
-source_profiles_from "${HOME}/workspace/util/dotfiles_topdesk"
+if [ -n "$DOTFILES_TOPDESK" ]; then
+  source_profiles_from "$DOTFILES_TOPDESK"
+fi
 
 # welcome message
-if [ -f $HOME/.config/welcome.message ]; then
-  cat $HOME/.config/welcome.message | lolcat
+if [ -f "$HOME/.config/welcome.message" ]; then
+  cat "$HOME/.config/welcome.message" | lolcat
 fi
 
 # update wallpaper
-if [ -e ~/bin/.fehbg ]; then
-  . ~/bin/.fehbg
+if [ -f "$HOME/bin/fehbg" ]; then
+  . "$HOME/bin/fehbg"
 fi
 
 export NVM_DIR="$HOME/.nvm"

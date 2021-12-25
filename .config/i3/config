@@ -100,7 +100,7 @@ set $ws9 9: workspace
 set $ws10 10: workspace
 
 # define screens
-set $screen2 eDP-1
+#set $screen2 eDP-1
 
 # office
 # set $screen1 DP-1-1
@@ -110,28 +110,28 @@ set $screen2 eDP-1
 set $screen1 DP-1
 
 # assign workspaces to screens 1 screen
-# workspace $ws1 output $screen1
-# workspace $ws2 output $screen1
-# workspace $ws3 output $screen1
-# workspace $ws4 output $screen1
-# workspace $ws5 output $screen1
-# workspace $ws6 output $screen1
-# workspace $ws7 output $screen1
-# workspace $ws8 output $screen1
-# workspace $ws9 output $screen1
-# workspace $ws10 output $screen1
+workspace $ws1 output $screen1
+workspace $ws2 output $screen1
+workspace $ws3 output $screen1
+workspace $ws4 output $screen1
+workspace $ws5 output $screen1
+workspace $ws6 output $screen1
+workspace $ws7 output $screen1
+workspace $ws8 output $screen1
+workspace $ws9 output $screen1
+workspace $ws10 output $screen1
 
 # assign workspaces to screens 2 screens
-workspace $ws2 output $screen2
-workspace $ws1 output $screen1
-workspace $ws3 output $screen1
-workspace $ws4 output $screen2
-workspace $ws5 output $screen1
-workspace $ws6 output $screen2
-workspace $ws7 output $screen1
-workspace $ws8 output $screen2
-workspace $ws9 output $screen1
-workspace $ws10 output $screen2
+# workspace $ws2 output $screen2
+# workspace $ws1 output $screen1
+# workspace $ws3 output $screen1
+# workspace $ws4 output $screen2
+# workspace $ws5 output $screen1
+# workspace $ws6 output $screen2
+# workspace $ws7 output $screen1
+# workspace $ws8 output $screen2
+# workspace $ws9 output $screen1
+# workspace $ws10 output $screen2
 
 # assign workspaces to screens 3 screens
 # workspace $ws1 output $screen3
@@ -203,33 +203,33 @@ mode "resize" {
 
 bindsym Mod4+r mode "resize"
 
-set $bg-color		 #2f343f
-set $inactive-bg-color 	 #2f343f
-set $text-color		 #f3f4f5
+set $bg-color            #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
 set $inactive-text-color #676e7d
-set $urgent-bg-color 	 #e53935
+set $urgent-bg-color     #e53935
 
 # window colors
-# 			border		   background	      text 	      	   indicator
-client.focused		$cfb223 	   $bg-color 	      $text-color 	   #00ff00
-client.unfocused	$inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+#                       border             background         text                 indicator
+client.focused          $cfb223            $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent 		$urgent-bg-color   $urgent-bg-color   $text-color 	   #00ff00
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #00ff00
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	#status_command i3status
-	status_command i3blocks
+        #status_command i3status
+        status_command i3blocks
 
-	colors {
-		background $bg-color
-		separator #757575
-		#		   border 	      background 	 text
-		focused_workspace  $bg-color 	      $bg-color 	 $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color 	 $text-color
-	}
+        colors {
+                background $bg-color
+                separator #757575
+                #                  border             background         text
+                focused_workspace  $bg-color          $bg-color          $text-color
+                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        }
 }
 
 ### media control buttons
@@ -247,8 +247,8 @@ bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" toggle && pkill -RTMIN+10 i3blocks
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -283,14 +283,14 @@ set $screen1_position = --right-of
 #exec --no-startup-id  "xrandr --output $screen1 --auto --primary $screen1_position $screen2"
 #exec --no-startup-id  "xrandr --output eDP-1 --auto --primary --right-of DP-1-1"
 # Home
-exec --no-startup-id  "xrandr --output eDP-1 --auto --primary --left-of DP-1"
+#exec --no-startup-id  "xrandr --output eDP-1 --auto --primary --left-of DP-1"
 # Office
 #exec --no-startup-id  "xrandr --output eDP-1 --auto --primary --right-of DP-1-1 --output DP-1-2 --auto --right-of eDP-1"
 # Eger
 #exec --no-startup-id  "xrandr --output eDP-1 --auto --primary --below DP-1"
 
 # load layout
-exec --no-startup-id "i3-msg 'workspace $ws1; append_layout /home/sandorf/.config/i3/lap-ws-1.json'"
+#exec --no-startup-id "i3-msg 'workspace $ws1; append_layout /home/sandorf/.config/i3/lap-ws-1.json'"
 #exec --no-startup-id "i3-msg 'workspace $ws2; append_layout /home/sandorf/.config/i3/lap-ws-2.json'"
 
 ### autostart apps

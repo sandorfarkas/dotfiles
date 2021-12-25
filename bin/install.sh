@@ -8,21 +8,6 @@ declare -A dirs_to_link=(
 ) 
 . "${dotfiles}/bin/install_util_functions.sh"
 
-install_dependencies () {
-  sudo apt install -y vim lolcat mlocate mc
-  if [ ${mode} == "desktop" ]; then
-    sudo apt install -y vim i3blocks fonts-font-awesome compton clipit feh authbind gparted
-
-    sudo touch /etc/authbind/byport/80
-    sudo chmod 500 /etc/authbind/byport/80
-    sudo chown sandorf /etc/authbind/byport/80    
-  fi
-}
-
-set_configuration () {
-  sudo snap set system refresh.retain=2
-}
-
 create_directories () {
   if [ ! -d "${dotfiles}/backup" ]; then mkdir "${dotfiles}/backup"; fi
   if [ ! -d "${HOME}/bin" ]; then mkdir "${HOME}/bin"; fi
@@ -49,8 +34,6 @@ copy_files () {
   fi
 }
 
-install_dependencies
-set_configuration
 create_directories
 copy_files
 

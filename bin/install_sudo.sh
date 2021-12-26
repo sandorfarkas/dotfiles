@@ -18,7 +18,7 @@ install_dependencies () {
   apt install -y vim lolcat mlocate mc
 
   if [ ${mode} == "desktop" ]; then
-    apt install -y i3blocks fonts-font-awesome compton clipit feh authbind gparted lxappearance light
+    apt install -y i3blocks fonts-font-awesome compton clipit feh authbind gparted lxappearance light imagemagick
 
     touch /etc/authbind/byport/80
     chmod 500 /etc/authbind/byport/80

@@ -31,7 +31,7 @@ copy_files () {
     if [ ! -f "${HOME}/Pictures/wallpaper.jpg" ]; then
       cp "${dotfiles}/Pictures/wallpaper.jpg" "${HOME}/Pictures/wallpaper.jpg"
     fi
-    cp "${dotfiles}/Pictures/rick.png" "${HOMOE}/Pictures/rick.png"
+    cp "${dotfiles}/Pictures/rick.png" "${HOME}/Pictures/rick.png"
   fi
 }
 

@@ -1,4 +1,6 @@
 #!/bin/bash
 if [[ !(-n $(pidof i3lock)) ]]; then
-  i3lock -i <(import -silent -window root png:- | mogrify -blur 0x60 png:- | composite -gravity Southeast -geometry -10x120 ~/Pictures/rick.png png:- png:-)
+  import -silent -window root png:- | convert -blur 0x20 png:- png:- | composite -gravity Southeast -geometry -10x120 ~/Pictures/rick.png png:- png:- > ${HOME}/tmp/lock-tmp.png
+  i3lock -i ${HOME}/tmp/lock-tmp.png
+  rm ${HOME}/tmp/lock-tmp.png
 fi

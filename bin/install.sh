@@ -1,11 +1,12 @@
 #!/bin/bash
 mode="desktop"
 dotfiles="${HOME}/workspace/util/dotfiles"
+owncloud="/data/owncloud"
 declare -A dirs_to_link=(
   ["${dotfiles}/profiles"]="${HOME}"
   ["${dotfiles}/home-bin"]="${HOME}/bin"
   ["${dotfiles}/.config/i3"]="${HOME}/.config/i3"
-  ["${dotfiles}/.ssh"]="${HOME}/.ssh"
+  ["${owncloud}/profile/.ssh"]="${HOME}/.ssh"
 ) 
 . "${dotfiles}/bin/install_util_functions.sh"
 

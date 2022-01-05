@@ -82,8 +82,8 @@ source_file_from_home ".prompt"
 source_file_from_home ".alias"
 
 # source TD stuff
-if [ -n "$DOTFILES_TOPDESK" ]; then
-  source_profiles_from "$DOTFILES_TOPDESK"
+if [ -d "${HOME}/workspace/util/dotfiles_topdesk" ]; then
+  source_profiles_from "${HOME}/workspace/util/dotfiles_topdesk"
 fi
 
 # welcome message

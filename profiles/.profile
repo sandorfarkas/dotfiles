@@ -23,8 +23,7 @@ if [ -f "$HOME/bin/fehbg" ]; then
   . "$HOME/bin/fehbg"
 fi
 
-if [ -n "$DOTFILES_TOPDESK" ]; then
-    if [ -f "$DOTFILES_TOPDESK/.env" ]; then
-        . "$DOTFILES_TOPDESK/.env"
-    fi
+# source TD stuff
+if [ -d "${HOME}/workspace/util/dotfiles_topdesk" ]; then
+  source_profiles_from "${HOME}/workspace/util/dotfiles_topdesk"
 fi

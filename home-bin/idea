@@ -3,4 +3,4 @@
 source "${DOTFILES_TD}/.env"
 #authbind -deep /opt/idea-IU-181.5281.24/bin/idea.sh
 #authbind --deep /opt/idea-IU-182.4505.22/bin/idea.sh
-authbind --deep /snap/bin/intellij-idea-ultimate
+authbind --deep "${HOME}/bin/idea-start"

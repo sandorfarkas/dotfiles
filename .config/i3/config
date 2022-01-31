@@ -107,19 +107,7 @@ set $ws10 10: workspace
 # set $screen3 DP-1-2
 
 # home
-set $screen1 DP-1
-
-# assign workspaces to screens 1 screen
-# workspace $ws1 output $screen1
-# workspace $ws2 output $screen1
-# workspace $ws3 output $screen1
-# workspace $ws4 output $screen1
-# workspace $ws5 output $screen1
-# workspace $ws6 output $screen1
-# workspace $ws7 output $screen1
-# workspace $ws8 output $screen1
-# workspace $ws9 output $screen1
-# workspace $ws10 output $screen1
+set $screen1 DP-2
 
 # assign workspaces to screens 2 screens
 workspace $ws2 output $screen2
@@ -132,18 +120,6 @@ workspace $ws7 output $screen1
 workspace $ws8 output $screen2
 workspace $ws9 output $screen1
 workspace $ws10 output $screen2
-
-# assign workspaces to screens 3 screens
-# workspace $ws1 output $screen3
-# workspace $ws2 output $screen2
-# workspace $ws3 output $screen1
-# workspace $ws4 output $screen2
-# workspace $ws5 output $screen3
-# workspace $ws6 output $screen2
-# workspace $ws7 output $screen1
-# workspace $ws8 output $screen2
-# workspace $ws9 output $screen1
-# workspace $ws10 output $screen2
 
 # switch to workspace
 bindsym Mod4+1 workspace $ws1
@@ -275,25 +251,25 @@ exec xautolock -time 5 -locker "${HOME}/bin/ricklock" &
 
 ### set monitor position
 # Home
-exec --no-startup-id  "xrandr --output eDP-1 --auto --primary --left-of DP-1"
+exec --no-startup-id  "xrandr --output eDP-1 --auto --primary --left-of DP-2"
 # Office
 #exec --no-startup-id  "xrandr --output eDP-1 --auto --primary --right-of DP-1-1 --output DP-1-2 --auto --right-of eDP-1"
 # Eger
 #exec --no-startup-id  "xrandr --output eDP-1 --auto --primary --below DP-1"
 
 # load layout
-exec --no-startup-id "i3-msg 'workspace $ws1; append_layout /home/sandorf/.config/i3/lap-ws-1.json'"
-exec --no-startup-id "i3-msg 'workspace $ws2; append_layout /home/sandorf/.config/i3/lap-ws-2.json'"
+#exec --no-startup-id "i3-msg 'workspace $ws1; append_layout /home/sandorf/.config/i3/lap-ws-1.json'"
+#exec --no-startup-id "i3-msg 'workspace $ws2; append_layout /home/sandorf/.config/i3/lap-ws-2.json'"
 
 ### autostart apps
 # chrome
 exec --no-startup-id i3-msg 'workspace $ws1; exec ${HOME}/bin/chrome'
-# outlook
-exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/google-chrome --app-id=fampijakidelpaoflhjfhdhgebcmkjnj'
 # messenger
 exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/google-chrome --app-id=fmpeogjilmkgcolmjmaebdaebincaebh'
+# outlook
+#exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/google-chrome --app-id=fampijakidelpaoflhjfhdhgebcmkjnj'
 # teams
-exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/teams'
+#exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/teams'
 
 exec owncloud
 exec compton
